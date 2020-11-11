@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atuuta</title>
+</head>
+<body>
+    <section>
+        <h1>Form Test</h1>
+        <label for=""></label>
+        <form id="tutor_student" action="https://nofzddm3a7.execute-api.eu-west-2.amazonaws.com/dev/register-tutor"> 
+            <fieldset>
+                <legend>Tutor or Student</legend>
+                <label for="tutor">Tutor</label>
+                <input type="radio" name="selection" value="tutor" id="tutor">
+                <label for="student">Student</label>
+                <input type="radio" name="selection" value="student" id="student" >
+                <button type="submit" formtarget="_blank" form="tutor_student" onsubmit="printSelection()">Submit</button>
+            </fieldset>
+        </form>
+
+        <button onclick="printSelection()">Click Me</button>
+        <div style="background-color: cadetblue;" id="message_box">
+            <h1>Message will appear here</h1>
+        </div>
+    </section>
+</body>
+<script>
+
+    let value = null;
+
+    function printSelection(value) {
+        if(document.getElementById('tutor').checked){
+            value = document.getElementById('tutor').value
+            document.getElementById("message_box").innerHTML = value + " was clicked";
+            format()
+        }
+        if(document.getElementById('student').checked){
+            value = document.getElementById('student').value
+            document.getElementById("message_box").innerHTML = value + " was clicked";
+            format()
+        }
+        console.log(value)
+        return value
+        //document.getElementById("message_box").innerHTML = value;
+    }
+
+    function format(){
+        document.getElementById("message_box").style.fontSize = '20pt'
+        document.getElementById("message_box").style.fontWeight = "900"
+    }
+
+    </script>
+</html>
